@@ -1,13 +1,7 @@
-import express from 'express'
-const app = express();
-const PORT = process.env.PORT ?? 8080;
+import app from './app.js';
 
-app.get('/', (req, res) => {
-  return res.json({msg:'Hello from Docker!'});
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-// hello
